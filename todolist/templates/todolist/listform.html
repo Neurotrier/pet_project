@@ -1,0 +1,21 @@
+{%extends "todolist/base.html"%}
+{%block content%}
+<div class="content">
+<div class="add_task"><p><a href="{%url 'createtask'%}">Создать новую задачу</a></p></div>
+    <div class="tasks">
+<ul>
+{% for t in tasks %}
+    <li> <p class="taskline">
+        <a class="f1" href="{% url 'deletetask' t.id %}">Удалить</a>
+        <span class="taskname">{{t.content}}</span>
+        <a class="f2" href="{% url 'updatetask' t.id %}">Редачить</a>
+    </p>
+        </li>
+    {%empty%}
+    <h2>Задач нет нет</h2>
+    {%endfor%}
+</ul>
+    </div>
+    <div class="delete_list"><p><a href="{%url 'deletelist' list.id%}">Удалить список</a></p></div>
+</div>
+{%endblock%}

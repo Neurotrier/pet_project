@@ -1,0 +1,12 @@
+{%extends "todolist/base.html"%}
+{%block content%}
+<form class="regform" method="post">
+    {%csrf_token%}
+
+   {%for f in form%}
+    <p><label class="form-label" for="{{f.id_for_label}}">{{f.label}}</label>{{f}}</p>
+    <div class="form-errors">{{f.errors}}</div>
+    {%endfor%}
+    <button type="submit">Зарегаться!</button>
+</form>
+{%endblock%}

@@ -1,0 +1,17 @@
+{%extends "todolist/base.html"%}
+
+{%block content%}
+<div class = 'greeting'>
+{%if request.user.is_authenticated%}
+    <div class="greetwords">
+<h2 class="greet">Привет, <a href="{%url 'account' user.username%}"> {{user.username}} </a></h2>
+<p>А я все думал, когда же ты появишься?</p>
+    </div>
+{%else%}
+    <div class="greetwords">
+<h2 class="greet">Привет, <a href="{%url 'login'%}">username..?</a></h2>
+        <p>Я с незнакомцами не общаюсь</p>
+{%endif%}
+    </div>
+</div>
+{%endblock%}

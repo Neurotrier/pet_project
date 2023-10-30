@@ -1,0 +1,16 @@
+{%extends "todolist/base.html"%}
+{%block content%}
+<div class="content">
+<div class="add_list"><p><a href="{%url 'createlist'%}">Создать новый список задач</a></p></div>
+    <div class="lists">
+<ul>
+{% for l in lists %}
+<li><a href="{{l.get_absolute_url}}">{{l.title}}</a></li>
+    {%empty%}
+    <h2>Списков нет</h2>
+    {%endfor%}
+</ul>
+    </div>
+</div>
+
+{%endblock%}

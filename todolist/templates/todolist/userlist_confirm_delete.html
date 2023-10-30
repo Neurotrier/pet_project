@@ -1,0 +1,10 @@
+{%extends "todolist/base.html"%}
+{%block content%}
+<div class="scream">
+<form method="POST">
+    {%csrf_token%}
+    <p>Вы уверены что хотите удалить список {{list}}?</p>
+    <input type="submit" value="Delete">
+</form>
+    </div>
+{%endblock%}
